@@ -117,7 +117,7 @@ func dataSourceNetboxClusterRead(d *schema.ResourceData, m interface{}) error {
 		d.Set("site_id", nil)
 	}
 	if result.CustomFields != nil {
-		d.Set("custom_fields", result.CustomFields)
+		d.Set("custom_fields", flattenCustomFields(result.CustomFields))
 	}
 
 	d.Set(tagsKey, getTagListFromNestedTagList(result.Tags))

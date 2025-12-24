@@ -241,7 +241,7 @@ func dataSourceNetboxVirtualMachineRead(d *schema.ResourceData, m interface{}) e
 			}
 		}
 		if v.CustomFields != nil {
-			mapping["custom_fields"] = v.CustomFields
+			mapping["custom_fields"] = flattenCustomFields(v.CustomFields)
 		}
 		if v.Disk != nil {
 			mapping["disk_size_gb"] = *v.Disk
